@@ -1,0 +1,60 @@
+{
+  "members": [
+    {
+      "name": "Apex Innovations",
+      "address": "100 Tech Avenue, Suite 400",
+      "phone": "+1 (555) 234-5678",
+      "website": "https://www.apexinnovationss.com",
+      "image": "images/apex.svg",
+      "membershipLevel": 3
+    },
+    {
+      "name": "Beacon Financial Group",
+      "address": "250 Market Street, Floor 2",
+      "phone": "+1 (555) 345-6789",
+      "website": "https://www.beaconfinanciall.com",
+      "image": "images/beacon.svg",
+      "membershipLevel": 2
+    },
+    {
+      "name": "Cascade Logistics",
+      "address": "500 Harbor Boulevard",
+      "phone": "+1 (555) 456-7890",
+      "website": "https://www.cascadelogisticss.com",
+      "image": "images/cascade.svg",
+      "membershipLevel": 1
+    },
+    {
+      "name": "Delta Design Studio",
+      "address": "789 Creative Lane",
+      "phone": "+1 (555) 567-8901",
+      "website": "https://www.deltadesiggn.com",
+      "image": "images/delta.svg",
+      "membershipLevel": 2
+    },
+    {
+      "name": "Echo Media Network",
+      "address": "321 Broad Street",
+      "phone": "+1 (555) 678-9012",
+      "website": "https://www.echomediaa.com",
+      "image": "images/echo.svg",
+      "membershipLevel": 1
+    },
+    {
+      "name": "Frontier Solutions",
+      "address": "654 Enterprise Way",
+      "phone": "+1 (555) 789-0123",
+      "website": "https://www.frontierrrsolutions.com",
+      "image": "images/frontier.svg",
+      "membershipLevel": 3
+    },
+    {
+      "name": "Global Trade Partners",
+      "address": "987 Commerce Parkway",
+      "phone": "+1 (555) 890-1234",
+      "website": "https://www.globaltradepartnerss.com",
+      "image": "images/global.svg",
+      "membershipLevel": 2
+    }
+  ]
+}
