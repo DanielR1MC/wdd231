@@ -6,18 +6,19 @@
     <title>Member Directory - Chamber of Commerce</title>
     <meta name="description" content="Official directory of businesses and member partners of the Chamber of Commerce. Find local partners, membership levels, and contact details.">
     <meta name="author" content="Daniel Reyes">
+    <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/chamber.css">
     <script src="scripts/chamber.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="header-box">
-            <img src="images/logo.svg" alt="Chamber of Commerce Logo" class="logo">
+    <header class="site-header">
+        <div class="brand-container">
+            <img src="images/logo.svg" alt="Chamber of Commerce Logo" class="site-logo">
             <span class="site-title">Chamber of Commerce</span>
         </div>
-        <button id="menu-button" aria-label="Open navigation menu">&#9776;</button>
-        <nav>
-            <ul class="navigation">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">&#9776;</button>
+        <nav class="nav-container">
+            <ul class="nav-list" id="navList">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="discover.html">Discover</a></li>
                 <li><a href="directory.html" class="active">Directory</a></li>
@@ -26,25 +27,25 @@
         </nav>
     </header>
 
-    <main>
+    <main class="main-content">
         <h1>Member Directory</h1>
         
         <div class="view-toggle">
-            <button id="grid" title="Grid view">⊞ Grid</button>
-            <button id="list" title="List view">☰ List</button>
+            <button class="view-btn active" id="gridBtn" aria-label="Grid view">Grid</button>
+            <button class="view-btn" id="listBtn" aria-label="List view">List</button>
         </div>
 
-        <div id="members-container" class="grid"></div>
+        <div class="members-grid grid" id="membersContainer"></div>
     </main>
 
-    <footer>
-        <div class="footer-content">
+    <footer class="site-footer">
+        <div class="footer-info">
             <p><strong>Chamber of Commerce</strong></p>
             <p>123 Main Street, City</p>
             <p>info@chamberofcommerce.org | +1 (555) 123-4567</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="currentyear"></span> Daniel Reyes | WDD 231</p>
+        <div class="footer-meta">
+            <p>&copy; <span id="currentYear"></span> Daniel Reyes | WDD 231</p>
             <p id="lastModified"></p>
         </div>
     </footer>

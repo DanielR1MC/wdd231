@@ -1,32 +1,31 @@
-const currentyear = document.querySelector("#currentyear");
+const currentYear = document.querySelector("#currentYear");
 const lastModified = document.querySelector("#lastModified");
-const membersContainer = document.querySelector("#members-container");
-const gridButton = document.querySelector("#grid");
-const listButton = document.querySelector("#list");
-const menuButton = document.querySelector("#menu-button");
-const navigation = document.querySelector(".navigation");
+const membersContainer = document.querySelector("#membersContainer");
+const gridBtn = document.querySelector("#gridBtn");
+const listBtn = document.querySelector("#listBtn");
+const menuToggle = document.querySelector("#menuToggle");
+const navList = document.querySelector("#navList");
 
-currentyear.textContent = new Date().getFullYear();
+currentYear.textContent = new Date().getFullYear();
 lastModified.textContent = `Last Modification: ${document.lastModified}`;
 
-menuButton.addEventListener("click", () => {
-    navigation.classList.toggle("open");
-    menuButton.classList.toggle("open");
+menuToggle.addEventListener("click", () => {
+    navList.classList.toggle("show");
 });
 
-const url = "data/members.json";
+const membersUrl = "data/members.json";
 
-async function getMembersData() {
+async function fetchMembers() {
     try {
-        const response = await fetch(url);
+        const response = await fetch(membersUrl);
         const data = await response.json();
-        displayMembers(data.members || data);
+        renderMembers(data.members || data);
     } catch (error) {
-        console.error("Error fetching members:", error);
+        console.error("Error fetching members data:", error);
     }
 }
 
-const getMembershipName = (level) => {
+const getMembershipLabel = (level) => {
     switch (level) {
         case 3:
             return "Gold";
@@ -37,7 +36,7 @@ const getMembershipName = (level) => {
     }
 };
 
-const displayMembers = (members) => {
+const renderMembers = (members) => {
     membersContainer.innerHTML = "";
     members.forEach((member) => {
         let card = document.createElement("section");
@@ -65,7 +64,7 @@ const displayMembers = (members) => {
         website.textContent = member.website;
 
         let membershipLevel = document.createElement("p");
-        membershipLevel.textContent = `Membership Level: ${getMembershipName(member.membershipLevel)}`;
+        membershipLevel.textContent = `Membership Level: ${getMembershipLabel(member.membershipLevel)}`;
 
         card.appendChild(portrait);
         card.appendChild(name);
@@ -78,14 +77,18 @@ const displayMembers = (members) => {
     });
 };
 
-getMembersData();
+fetchMembers();
 
-gridButton.addEventListener("click", () => {
+gridBtn.addEventListener("click", () => {
     membersContainer.classList.add("grid");
     membersContainer.classList.remove("list");
+    gridBtn.classList.add("active");
+    listBtn.classList.remove("active");
 });
 
-listButton.addEventListener("click", () => {
+listBtn.addEventListener("click", () => {
     membersContainer.classList.add("list");
     membersContainer.classList.remove("grid");
+    listBtn.classList.add("active");
+    gridBtn.classList.remove("active");
 });
