@@ -1,7 +1,7 @@
 :root {
     --primary-color: #262B40;
     --secondary-color: #0474C4;
-    --accent-color: #5379AE;
+    --accent-color: #73A5E6;
     --bg-color: #f8f9fa;
     --card-bg: #ffffff;
     --text-color: #212529;
@@ -9,19 +9,6 @@
     --completed-border: #52b788;
     --pending-bg: #fefae0;
     --pending-border: #06457F;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
 }
 
 .site-header {
@@ -71,6 +58,7 @@ body {
 .nav-list a:hover,
 .nav-list a.active {
     color: var(--accent-color);
+    font-weight: 700;
 }
 
 .main-content {
@@ -87,6 +75,14 @@ body {
     color: var(--primary-color);
     border-bottom: 2px solid var(--secondary-color);
     padding-bottom: 0.5rem;
+}
+
+.hero-section h2 {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
 }
 
 .profile-section {
