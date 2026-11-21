@@ -108,6 +108,16 @@ h1 {
     color: var(--light-text);
 }
 
+.error-msg {
+    text-align: center;
+    color: #b91c1c;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 1rem;
+    grid-column: 1 / -1;
+}
+
 .members-grid.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -224,7 +234,7 @@ h1 {
     }
 
     .members-grid.list .member-card {
-        grid-template-columns: 2fr 2fr 1.5fr 2fr 1.2fr;
+        grid-template-columns: 1.8fr 1.5fr 2fr 1.4fr 2fr 1.2fr;
         align-items: center;
         gap: 1rem;
     }
