@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Chamber of Commerce</title>
+    <meta name="description" content="Official home page of the Chamber of Commerce. Explore local events, community weather, business spotlights, and membership opportunities.">
+    <meta name="author" content="Daniel Reyes">
+    <meta property="og:title" content="Chamber of Commerce - Home">
+    <meta property="og:description" content="Connect with local businesses, explore upcoming community events, check local weather, and become a Chamber member.">
+    <meta property="og:image" content="https://DanielR1MC.github.io/wdd231/chamber/images/hero.webp">
+    <meta property="og:url" content="https://DanielR1MC.github.io/wdd231/chamber/index.html">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="images/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/chamber.css">
+    <script src="scripts/chamber.js" defer></script>
+    <script src="scripts/home.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="brand-container">
+            <img src="images/logo.svg" alt="Chamber of Commerce Logo" class="site-logo">
+            <span class="site-title">Chamber of Commerce</span>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">&#9776;</button>
+        <nav class="nav-container">
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero">
+            <img src="images/hero.webp" alt="Chamber of Commerce city skyline" class="hero-img" width="976" height="600">
+            <div class="hero-content">
+                <h1>Chamber of Commerce</h1>
+                <p>Supporting local businesses, partnerships, and community growth.</p>
+                <a href="join.html" class="cta-btn">Join the Chamber</a>
+            </div>
+        </section>
+
+        <div class="home-grid">
+            <section class="card events-section">
+                <h2>Current Events</h2>
+                <ul class="events-list">
+                    <li>
+                        <h3>Business Networking Breakfast</h3>
+                        <p><strong>Date:</strong> December 10, 2026 | 8:00 AM</p>
+                        <p>Meet local business owners and share ideas for the upcoming season.</p>
+                    </li>
+                    <li>
+                        <h3>Digital Growth &amp; Local SEO Session</h3>
+                        <p><strong>Date:</strong> December 17, 2026 | 4:00 PM</p>
+                        <p>Practical strategies to help local businesses get discovered online.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="card weather-section">
+                <h2>Local Weather</h2>
+                <div id="currentWeather" class="current-weather">
+                    <p>Loading weather...</p>
+                </div>
+                <div class="forecast-box">
+                    <h3>3-Day Forecast</h3>
+                    <div id="forecastContainer" class="forecast-grid"></div>
+                </div>
+            </section>
+        </div>
+
+        <section class="spotlights-section">
+            <h2>Company Spotlights</h2>
+            <div id="spotlightsContainer" class="spotlights-grid"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-info">
+            <p><strong>Chamber of Commerce</strong></p>
+            <p>123 Main Street, City</p>
+            <p>info@chamberofcommerce.org | +1 (555) 123-4567</p>
+        </div>
+        <div class="footer-meta">
+            <p>&copy; <span id="currentYear"></span> Daniel Reyes | WDD 231</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+</body>
+</html>
