@@ -18,10 +18,14 @@ const membersUrl = "data/members.json";
 async function fetchMembers() {
     try {
         const response = await fetch(membersUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const data = await response.json();
         renderMembers(data.members || data);
     } catch (error) {
         console.error("Error fetching members data:", error);
+        membersContainer.innerHTML = `<p class="error-msg">Unable to load the member directory right now. Please try again later.</p>`;
     }
 }
 
@@ -52,6 +56,9 @@ const renderMembers = (members) => {
         let name = document.createElement("h3");
         name.textContent = member.name;
 
+        let industry = document.createElement("p");
+        industry.textContent = member.industry;
+
         let address = document.createElement("p");
         address.textContent = member.address;
 
@@ -68,6 +75,7 @@ const renderMembers = (members) => {
 
         card.appendChild(portrait);
         card.appendChild(name);
+        card.appendChild(industry);
         card.appendChild(address);
         card.appendChild(phone);
         card.appendChild(website);
