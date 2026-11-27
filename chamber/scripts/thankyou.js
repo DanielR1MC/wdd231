@@ -1,65 +1,56 @@
-const summaryContainer = document.querySelector("#applicationSummary");
-const params = new URLSearchParams(window.location.search);
+const summaryBox = document.querySelector("#applicationSummary");
+const queryData = new URLSearchParams(window.location.search);
 
-const fields = [
-    { label: "First Name", key: "firstName" },
-    { label: "Last Name", key: "lastName" },
-    { label: "Email Address", key: "email" },
-    { label: "Mobile Phone", key: "phone" },
-    { label: "Business / Organization", key: "organization" },
-    { label: "Membership Level", key: "membershipLevel" },
-    { label: "Submitted At", key: "timestamp" }
+const formItems = [
+    { label: "First Name", name: "firstName" },
+    { label: "Last Name", name: "lastName" },
+    { label: "Email Address", name: "email" },
+    { label: "Mobile Phone", name: "phone" },
+    { label: "Business / Organization", name: "organization" },
+    { label: "Membership Level", name: "membershipLevel" },
+    { label: "Submitted At", name: "timestamp" }
 ];
 
-const membershipLabels = {
+const levelNames = {
     np: "NP Membership (Non-Profit)",
     bronze: "Bronze Membership",
     silver: "Silver Membership",
     gold: "Gold Membership"
 };
 
-function formatMembershipLevel(rawValue) {
-    if (!rawValue) {
-        return "Not provided";
-    }
-
-    const normalizedKey = rawValue.trim().toLowerCase();
-    return membershipLabels[normalizedKey] || rawValue;
+function getLevelText(val) {
+    if (!val) return "Not provided";
+    const key = val.trim().toLowerCase();
+    return levelNames[key] || val;
 }
 
-function formatTimestamp(rawValue) {
-    if (!rawValue) {
-        return "Not provided";
-    }
-
-    const parsedDate = new Date(rawValue);
-    if (Number.isNaN(parsedDate.getTime())) {
-        return rawValue;
-    }
-
-    return parsedDate.toLocaleString("en-US", {
+function getDateText(val) {
+    if (!val) return "Not provided";
+    const d = new Date(val);
+    if (Number.isNaN(d.getTime())) return val;
+    return d.toLocaleString("en-US", {
         dateStyle: "medium",
         timeStyle: "medium"
     });
 }
 
-if (summaryContainer) {
-    fields.forEach((field) => {
+if (summaryBox) {
+    for (const item of formItems) {
         const dt = document.createElement("dt");
-        dt.textContent = field.label;
+        dt.textContent = item.label;
 
         const dd = document.createElement("dd");
-        const rawValue = params.get(field.key);
+        const value = queryData.get(item.name);
 
-        if (field.key === "timestamp") {
-            dd.textContent = formatTimestamp(rawValue);
-        } else if (field.key === "membershipLevel") {
-            dd.textContent = formatMembershipLevel(rawValue);
+        if (item.name === "timestamp") {
+            dd.textContent = getDateText(value);
+        } else if (item.name === "membershipLevel") {
+            dd.textContent = getLevelText(value);
         } else {
-            dd.textContent = rawValue || "Not provided";
+            dd.textContent = value || "Not provided";
         }
 
-        summaryContainer.appendChild(dt);
-        summaryContainer.appendChild(dd);
-    });
+        summaryBox.appendChild(dt);
+        summaryBox.appendChild(dd);
+    }
 }

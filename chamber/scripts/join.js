@@ -1,37 +1,37 @@
-const timestampInput = document.querySelector("#timestamp");
-const modalLinks = document.querySelectorAll(".level-link");
-const closeButtons = document.querySelectorAll(".close-modal-btn");
-const modals = document.querySelectorAll(".info-modal");
+const timeField = document.querySelector("#timestamp");
+const openBtns = document.querySelectorAll(".level-link");
+const closeBtns = document.querySelectorAll(".close-modal-btn");
+const dialogs = document.querySelectorAll(".info-modal");
 
-if (timestampInput) {
-    timestampInput.value = new Date().toISOString();
+if (timeField) {
+    timeField.value = new Date().toISOString();
 }
 
-modalLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-        event.preventDefault();
-        const modalId = link.getAttribute("data-modal");
-        const targetModal = document.querySelector(`#${modalId}`);
-        if (targetModal) {
-            targetModal.showModal();
+for (const btn of openBtns) {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = btn.getAttribute("data-modal");
+        const modalBox = document.querySelector(`#${targetId}`);
+        if (modalBox) {
+            modalBox.showModal();
         }
     });
-});
+}
 
-closeButtons.forEach((btn) => {
+for (const btn of closeBtns) {
     btn.addEventListener("click", () => {
-        const modalId = btn.getAttribute("data-close");
-        const targetModal = document.querySelector(`#${modalId}`);
-        if (targetModal) {
-            targetModal.close();
+        const targetId = btn.getAttribute("data-close");
+        const modalBox = document.querySelector(`#${targetId}`);
+        if (modalBox) {
+            modalBox.close();
         }
     });
-});
+}
 
-modals.forEach((modal) => {
-    modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            modal.close();
+for (const box of dialogs) {
+    box.addEventListener("click", (e) => {
+        if (e.target === box) {
+            box.close();
         }
     });
-});
+}
