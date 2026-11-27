@@ -71,10 +71,22 @@
     font-weight: 600;
 }
 
+@keyframes pageFadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .main-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1.5rem 1rem;
+    animation: pageFadeSlide 0.55s ease-out both;
 }
 
 h1 {
@@ -486,6 +498,26 @@ h1 {
     width: fit-content;
 }
 
+@keyframes modalPopIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes backdropFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .info-modal {
     margin: auto;
     max-width: 440px;
@@ -498,8 +530,16 @@ h1 {
     box-shadow: 0 10px 25px #00000033;
 }
 
+.info-modal[open] {
+    animation: modalPopIn 0.25s ease-out both;
+}
+
 .info-modal::backdrop {
     background-color: #0f172a99;
+}
+
+.info-modal[open]::backdrop {
+    animation: backdropFadeIn 0.25s ease-out both;
 }
 
 .info-modal h3 {
