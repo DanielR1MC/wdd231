@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Chamber of Commerce</title>
+    <meta name="description" content="Apply for membership in the Chamber of Commerce. Compare NP, Bronze, Silver, and Gold membership levels and submit your application.">
+    <meta name="author" content="Daniel Reyes">
+    <meta property="og:title" content="Join the Chamber of Commerce">
+    <meta property="og:description" content="Submit your membership application and explore benefits for NP, Bronze, Silver, and Gold tiers.">
+    <meta property="og:image" content="https://DanielR1MC.github.io/wdd231/chamber/images/logo.svg">
+    <meta property="og:url" content="https://DanielR1MC.github.io/wdd231/chamber/join.html">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="images/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/chamber.css">
+    <script src="scripts/chamber.js" defer></script>
+    <script src="scripts/join.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="brand-container">
+            <img src="images/logo.svg" alt="Chamber of Commerce Logo" class="site-logo">
+            <span class="site-title">Chamber of Commerce</span>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">&#9776;</button>
+        <nav class="nav-container">
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html" class="active">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1>Membership Application</h1>
+
+        <div class="join-layout">
+            <form method="get" action="thankyou.html" class="join-form card">
+                <h2>Apply for Membership</h2>
+
+                <label class="form-field">
+                    <span>First Name *</span>
+                    <input type="text" id="firstName" name="firstName" required autocomplete="given-name" title="Enter your first name">
+                </label>
+
+                <label class="form-field">
+                    <span>Last Name *</span>
+                    <input type="text" id="lastName" name="lastName" required autocomplete="family-name" title="Enter your last name">
+                </label>
+
+                <label class="form-field">
+                    <span>Organizational Title</span>
+                    <input
+                        type="text"
+                        id="orgTitle"
+                        name="orgTitle"
+                        autocomplete="organization-title"
+                        pattern="[A-Za-z\- ]{7,}"
+                        title="Use at least 7 letters, spaces, or hyphens"
+                    >
+                </label>
+
+                <label class="form-field">
+                    <span>Email Address *</span>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        autocomplete="email"
+                        placeholder="member@example.com"
+                        title="Enter a valid email address"
+                    >
+                </label>
+
+                <label class="form-field">
+                    <span>Mobile Phone *</span>
+                    <input type="tel" id="phone" name="phone" required autocomplete="tel" title="Enter your mobile phone number">
+                </label>
+
+                <label class="form-field">
+                    <span>Business / Organization Name *</span>
+                    <input type="text" id="organization" name="organization" required autocomplete="organization" title="Enter your business or organization name">
+                </label>
+
+                <fieldset class="form-field membership-fieldset">
+                    <legend>Membership Level *</legend>
+                    <label class="radio-option">
+                        <input type="radio" name="membershipLevel" value="np" required>
+                        <span>NP Membership (Non-Profit)</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="membershipLevel" value="bronze">
+                        <span>Bronze Membership</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="membershipLevel" value="silver">
+                        <span>Silver Membership</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="membershipLevel" value="gold">
+                        <span>Gold Membership</span>
+                    </label>
+                </fieldset>
+
+                <label class="form-field">
+                    <span>Business / Organization Description</span>
+                    <textarea id="description" name="description" rows="4" title="Describe your business or organization"></textarea>
+                </label>
+
+                <input type="hidden" id="timestamp" name="timestamp">
+
+                <input type="submit" value="Submit Membership Application" class="submit-btn">
+            </form>
+
+            <aside class="membership-cards-section">
+                <h2>Membership Levels</h2>
+                <div class="membership-cards-grid">
+                    <article class="membership-card level-enter">
+                        <h3>NP Membership</h3>
+                        <p>Non-profit organizations • Free</p>
+                        <a href="#np-modal" class="level-link" data-modal="npModal">View Benefits</a>
+                    </article>
+
+                    <article class="membership-card level-enter">
+                        <h3>Bronze Membership</h3>
+                        <p>Starter local business tier</p>
+                        <a href="#bronze-modal" class="level-link" data-modal="bronzeModal">View Benefits</a>
+                    </article>
+
+                    <article class="membership-card level-enter">
+                        <h3>Silver Membership</h3>
+                        <p>Growth &amp; event visibility tier</p>
+                        <a href="#silver-modal" class="level-link" data-modal="silverModal">View Benefits</a>
+                    </article>
+
+                    <article class="membership-card level-enter">
+                        <h3>Gold Membership</h3>
+                        <p>Full spotlight &amp; priority perks</p>
+                        <a href="#gold-modal" class="level-link" data-modal="goldModal">View Benefits</a>
+                    </article>
+                </div>
+            </aside>
+        </div>
+
+        <dialog id="npModal" class="info-modal">
+            <h3>NP Membership Benefits</h3>
+            <p><strong>Cost:</strong> Free (Non-profit organizations only)</p>
+            <ul>
+                <li>Listing in the Chamber member directory</li>
+                <li>Access to monthly community networking sessions</li>
+                <li>Community announcements support</li>
+            </ul>
+            <button type="button" class="close-modal-btn" data-close="npModal">Close</button>
+        </dialog>
+
+        <dialog id="bronzeModal" class="info-modal">
+            <h3>Bronze Membership Benefits</h3>
+            <p><strong>Cost:</strong> Entry-level annual dues</p>
+            <ul>
+                <li>Full member directory profile</li>
+                <li>Member pricing on workshops and mixers</li>
+                <li>Access to business resource guides</li>
+            </ul>
+            <button type="button" class="close-modal-btn" data-close="bronzeModal">Close</button>
+        </dialog>
+
+        <dialog id="silverModal" class="info-modal">
+            <h3>Silver Membership Benefits</h3>
+            <p><strong>Cost:</strong> Mid-tier annual dues</p>
+            <ul>
+                <li>All Bronze benefits included</li>
+                <li>Eligibility for home page company spotlights</li>
+                <li>Discounted event sponsorship opportunities</li>
+            </ul>
+            <button type="button" class="close-modal-btn" data-close="silverModal">Close</button>
+        </dialog>
+
+        <dialog id="goldModal" class="info-modal">
+            <h3>Gold Membership Benefits</h3>
+            <p><strong>Cost:</strong> Premier annual dues</p>
+            <ul>
+                <li>All Silver benefits included</li>
+                <li>Priority home page spotlight rotation</li>
+                <li>Featured promotion in Chamber events and newsletters</li>
+            </ul>
+            <button type="button" class="close-modal-btn" data-close="goldModal">Close</button>
+        </dialog>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-info">
+            <p><strong>Chamber of Commerce</strong></p>
+            <p>123 Main Street, City</p>
+            <p>info@chamberofcommerce.org | +1 (555) 123-4567</p>
+        </div>
+        <div class="footer-meta">
+            <p>&copy; <span id="currentYear"></span> Daniel Reyes | WDD 231</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+</body>
+</html>

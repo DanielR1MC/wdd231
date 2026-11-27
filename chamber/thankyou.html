@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Received - Chamber of Commerce</title>
+    <meta name="description" content="Confirmation page for your Chamber of Commerce membership application.">
+    <meta name="author" content="Daniel Reyes">
+    <link rel="icon" href="images/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/chamber.css">
+    <script src="scripts/chamber.js" defer></script>
+    <script src="scripts/thankyou.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="brand-container">
+            <img src="images/logo.svg" alt="Chamber of Commerce Logo" class="site-logo">
+            <span class="site-title">Chamber of Commerce</span>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">&#9776;</button>
+        <nav class="nav-container">
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html" class="active">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1>Thank You for Applying</h1>
+        <section class="card thankyou-card">
+            <h2>Application Summary</h2>
+            <p class="thankyou-msg">Thank you for submitting your membership application to the Chamber of Commerce. Here are the details we received:</p>
+            <dl id="applicationSummary" class="summary-list"></dl>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-info">
+            <p><strong>Chamber of Commerce</strong></p>
+            <p>123 Main Street, City</p>
+            <p>info@chamberofcommerce.org | +1 (555) 123-4567</p>
+        </div>
+        <div class="footer-meta">
+            <p>&copy; <span id="currentYear"></span> Daniel Reyes | WDD 231</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+</body>
+</html>
