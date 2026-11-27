@@ -1,0 +1,112 @@
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.view-btn {
+    padding: 0.5rem 1.25rem;
+    font-size: 1rem;
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.view-btn:hover,
+.view-btn.active {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+.error-msg {
+    text-align: center;
+    color: #b91c1c;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 1rem;
+    grid-column: 1 / -1;
+}
+
+.members-grid.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.members-grid.grid .member-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 6px #0000000f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.members-grid.grid .member-card img {
+    width: 160px;
+    height: 110px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.members-grid.grid .member-card h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.members-grid.grid .member-card a {
+    color: var(--secondary-color);
+    word-break: break-all;
+}
+
+.members-grid.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.members-grid.list .member-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.members-grid.list .member-card:nth-child(even) {
+    background-color: #f1f5f9;
+}
+
+.members-grid.list .member-card img {
+    display: none;
+}
+
+.members-grid.list .member-card h3 {
+    color: var(--primary-color);
+    font-size: 1.05rem;
+}
+
+.members-grid.list .member-card a {
+    color: var(--secondary-color);
+    word-break: break-all;
+}
+
+@media (min-width: 768px) {
+    .members-grid.list .member-card {
+        grid-template-columns: 1.8fr 1.5fr 2fr 1.4fr 2fr 1.2fr;
+        align-items: center;
+        gap: 1rem;
+    }
+}
