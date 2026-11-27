@@ -366,78 +366,6 @@ h1 {
     word-break: break-all;
 }
 
-@media (min-width: 768px) {
-    .hero-img {
-        height: 460px;
-    }
-
-    .hero-content {
-        position: absolute;
-        inset: 0;
-        background: #1b365db8;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .home-grid {
-        grid-template-columns: 1.2fr 1fr;
-    }
-}
-
-@media (min-width: 768px) {
-    .site-header {
-        flex-wrap: nowrap;
-        padding: 1rem 2rem;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
-
-    .nav-container {
-        width: auto;
-    }
-
-    .nav-list {
-        display: flex;
-        flex-direction: row;
-        margin-top: 0;
-        gap: 0.5rem;
-    }
-
-    .nav-list li a {
-        border-top: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-    }
-
-    .members-grid.list .member-card {
-        grid-template-columns: 1.8fr 1.5fr 2fr 1.4fr 2fr 1.2fr;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .site-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-        padding: 2rem 3rem;
-    }
-
-    .footer-info {
-        margin-bottom: 0;
-    }
-
-    .footer-meta {
-        border-top: none;
-        padding-top: 0;
-        text-align: right;
-    }
-}
-
 
 /* more code for the join page -------------------------------------- */
 
@@ -616,7 +544,61 @@ h1 {
     word-break: break-word;
 }
 
+
+/* responsive desktop rules -------------------------------------------- */
+
+
 @media (min-width: 768px) {
+    .site-header {
+        flex-wrap: nowrap;
+        padding: 1rem 2rem;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-container {
+        width: auto;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0;
+        gap: 0.5rem;
+    }
+
+    .nav-list li a {
+        border-top: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+    }
+
+    .hero-img {
+        height: 460px;
+    }
+
+    .hero-content {
+        position: absolute;
+        inset: 0;
+        background: #1b365db8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-grid {
+        grid-template-columns: 1.2fr 1fr;
+    }
+
+    .members-grid.list .member-card {
+        grid-template-columns: 1.8fr 1.5fr 2fr 1.4fr 2fr 1.2fr;
+        align-items: center;
+        gap: 1rem;
+    }
+
     .join-layout {
         grid-template-columns: 1.3fr 1fr;
         align-items: start;
@@ -625,5 +607,23 @@ h1 {
     .summary-list {
         grid-template-columns: max-content 1fr;
         column-gap: 1.5rem;
+    }
+
+    .site-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 2rem 3rem;
+    }
+
+    .footer-info {
+        margin-bottom: 0;
+    }
+
+    .footer-meta {
+        border-top: none;
+        padding-top: 0;
+        text-align: right;
     }
 }
