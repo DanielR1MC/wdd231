@@ -7,8 +7,25 @@ const fields = [
     { label: "Email Address", key: "email" },
     { label: "Mobile Phone", key: "phone" },
     { label: "Business / Organization", key: "organization" },
+    { label: "Membership Level", key: "membershipLevel" },
     { label: "Submitted At", key: "timestamp" }
 ];
+
+const membershipLabels = {
+    np: "NP Membership (Non-Profit)",
+    bronze: "Bronze Membership",
+    silver: "Silver Membership",
+    gold: "Gold Membership"
+};
+
+function formatMembershipLevel(rawValue) {
+    if (!rawValue) {
+        return "Not provided";
+    }
+
+    const normalizedKey = rawValue.trim().toLowerCase();
+    return membershipLabels[normalizedKey] || rawValue;
+}
 
 function formatTimestamp(rawValue) {
     if (!rawValue) {
@@ -36,6 +53,8 @@ if (summaryContainer) {
 
         if (field.key === "timestamp") {
             dd.textContent = formatTimestamp(rawValue);
+        } else if (field.key === "membershipLevel") {
+            dd.textContent = formatMembershipLevel(rawValue);
         } else {
             dd.textContent = rawValue || "Not provided";
         }
